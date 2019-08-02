@@ -4,9 +4,12 @@ use think\Route;
 
 $naio = null;
 
-Route::get('/', function() use ($naio) {
-    echo phpinfo();
-});
+//Route::get('/', function() use ($naio) {
+//    echo phpinfo();
+//});
+
+Route::get('/', 'index/index/index');
+
 
 Route::group('admin', function(){
     //后台首页

@@ -57,41 +57,37 @@
                                 <input id="data-checkall" type="checkbox" onclick="checkAll(this)" class="checkbox" placeholder="全选/取消">
                             </th>
                             <th>ID</th>
-                            <th>昵称</th>
-                            <th>账号</th>
+                            <th>账号名</th>
                             <th>角色</th>
                             <th>是否启用</th>
                             <th>操作</th>
                         </tr>
                         </thead>
                         <tbody>
-
+                        {foreach name="admin" item="v" key="k"}
                         <tr>
                             <td>
                                 <input type="checkbox" onclick="checkThis(this)" name="data-checkbox"
-                                       data-id="1" class="checkbox data-list-check" value="1"
+                                       data-id="1" class="checkbox data-list-check" value="{$v.id}"
                                        placeholder="选择/取消">
                             </td>
-                            <td>id</td>
-                            <td>nickname</td>
-                            <td>username</td>
+                            <td>{$v.id}</td>
+                            <td>{$v.username}</td>
                             <td>
-
                                 <small class="label bg-blue">{role}</small>
-
                             </td>
                             <td>status</td>
                             <td class="td-do">
-                                <a href="{:url('admin_user/edit',['id'=>1])}"
+                                <a href="{:url('admin/edit',['id'=>$v.id])}"
                                    class="btn btn-primary btn-xs" title="修改" data-toggle="tooltip">
                                     <i class="fa fa-pencil"></i>
                                 </a>
-                                <a class="btn btn-danger btn-xs AjaxButton" data-toggle="tooltip" title="删除"  data-id="1" data-confirm-title="删除确认" data-confirm-content='您确定要删除ID为 <span class="text-red">1</span> 的数据吗' data-url="{:url('del')}">
+                                <a class="btn btn-danger btn-xs AjaxButton" data-toggle="tooltip" title="删除"  data-id="{$v.id}" data-confirm-title="删除确认" data-confirm-content='您确定要删除ID为 <span class="text-red">{$v.id}</span> 的数据吗' data-url="{:url('del')}">
                                     <i class="fa fa-trash"></i>
                                 </a>
                             </td>
                         </tr>
-
+                        {/foreach}
                         </tbody>
                     </table>
                 </div>

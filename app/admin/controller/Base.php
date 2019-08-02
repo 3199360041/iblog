@@ -5,6 +5,7 @@ namespace app\admin\controller;
 use app\admin\service\AuthService;
 use think\Controller;
 use think\Request;
+use app\admin\model\Admin;
 
 /**
  * Class 后台基控制器
@@ -26,6 +27,12 @@ class Base extends Controller
      * 当前管理员id
      */
     protected $admin_id = 0;
+
+    /**
+     * @var
+     * 当前管理员id
+     */
+    protected $admin_user;
 
     /**
      * @var
@@ -61,6 +68,7 @@ class Base extends Controller
             }else{
 //                dd($this->url, true);
                 $this->admin_id = session(self::SESSION_KEY_NAME);
+                $this->admin_user = Admin::get($this->admin_id);
                 $auth = new AuthService($this->admin_id);
                 if(!$this->authCheck($auth)) {
                     return $this->error('没有权限');
@@ -73,9 +81,8 @@ class Base extends Controller
 
     protected function fetch($template = '', $vars = [], $replace = [], $config = [])
     {
-
-        $this->var['key'] = 'name';
-
+        $this->var['user'] = $this->admin_user;
+        $this->assign('var', $this->var);
         return parent::fetch($template, $vars, $replace, $config);
 
     }

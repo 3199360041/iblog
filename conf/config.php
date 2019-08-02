@@ -137,10 +137,10 @@ return [
 
     // 视图输出字符串内容替换
     'view_replace_str'       => [
+        '__IMAGES__' => '/images',
         '__STATIC_ADMIN__' => '/static/admin',
         '__STATIC_INDEX__' => '/static/index',
-        '__UPLOAD__' => '/upload',
-        '__PIC__' => '/picture'
+        '__UPLOAD__' => '/upload'
     ],
     // 默认跳转页面对应的模板文件
     'dispatch_success_tmpl'  => THINK_PATH . 'tpl' . DS . 'dispatch_jump.tpl',

@@ -1,0 +1,40 @@
+{
+    "name": "3199360041/blog",
+    "description": "blog",
+    "type": "project",
+    "keywords": [
+        "blog",
+        "thinkphp"
+    ],
+    "homepage": "https://github.com/3199360041/blog",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "3199360041",
+            "email": "3199360041@qq.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "topthink/framework": "5.0.24",
+        "topthink/think-migration": "^1.0",
+        "topthink/think-captcha": "v1.0",
+        "topthink/think-helper": "^3.0",
+        "topthink/think-image": "^1.0",
+        "topthink/think-mongo": "v2.0",
+        "topthink/think-queue": "v1.0",
+        "topthink/think-worker": "v1.0",
+        "workerman/workerman": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": "app"
+        }
+    },
+    "extra": {
+        "think-path": "thinkphp"
+    },
+    "config": {
+        "preferred-install": "dist"
+    }
+}

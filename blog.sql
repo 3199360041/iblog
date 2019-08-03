@@ -1,6 +1,17 @@
 
 SET NAMES utf8mb4;
 
+
+CREATE TABLE `category` (
+  `id` int(11) NOT NULL primary key AUTO_INCREMENT,
+  `name` varchar(128) NOT NULL,
+  `parent` int(11) DEFAULT NULL,
+    `status` tinyint default 1,
+  `created_at` timestamp,
+  `updated_at` timestamp
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
 CREATE TABLE `menu` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(128) NOT NULL,

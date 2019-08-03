@@ -15,15 +15,39 @@ class Admin extends Base
     public function index()
     {
 //        $request = Request::instance();
-//        $adminModel = new AdminModel();
-//
-//        $data = $adminModel->all()->paginate(10, false, ['query'=>$request->get()]);
-//
-//        $this->assign([
-//            'admin' => $data,
-//            'page'  => $data->render(),
-//            'total' => $data->total(),
-//        ]);
+        $data = AdminModel::paginate(1);
+
+        $this->assign([
+            'data' => $data
+        ]);
+
         return $this->fetch();
     }
+
+    public function create()
+    {
+        $request = Request::instance();
+        if($request->isPost()) {
+            halt($request->param());
+        }else{
+            return $this->fetch();
+        }
+    }
+
+    public function update($id)
+    {
+        halt($id);
+    }
+
+    public function delete()
+    {
+        $request = Request::instance();
+
+        $id = $request->post('id');
+
+        AdminModel::destroy(['id' => $id]);
+
+        return $this->redirect('admin/admin/index');
+    }
+
 }

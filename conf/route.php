@@ -4,10 +4,6 @@ use think\Route;
 
 $naio = null;
 
-//Route::get('/', function() use ($naio) {
-//    echo phpinfo();
-//});
-
 Route::get('/', 'index/index/index');
 
 
@@ -24,6 +20,10 @@ Route::group('admin', function(){
     //后台系统设置
     Route::get('/admin', 'admin/admin/index');//管理员列表
     Route::get('/admin/index', 'admin/admin/index');
+    Route::rule('/admin/create', 'admin/admin/create', 'GET|POST');
+    Route::rule('/admin/update/:id', 'admin/admin/update', 'GET|POST', ['id' => '\d+']);
+    Route::post('/admin/delete', 'admin/admin/delete');
+
     Route::get('/role', 'admin/role/index');//角色管理
     Route::get('/role/index', 'admin/role/index');
     Route::get('/access', 'admin/access/index');//权限管理
